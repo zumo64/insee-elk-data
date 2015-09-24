@@ -34,6 +34,7 @@ var output = fs.createWriteStream("data/iris.json");
 output.write('{"type": "FeatureCollection", "features": [\n');
  
 
+
 // unzip files
 var Zip = require('node-7z'); // Name the class as you want!
 var unzipTask = new Zip();
@@ -42,6 +43,7 @@ var shapefiles = [];
 
 unzipTask.extractFull('data/iris-france.7z', 'data/iris')
    .progress(function (file) {
+     
       file.forEach(function(fileName) {
          if (/\.shp$/.test(fileName)) {
             shapefiles.push("data/iris/" + fileName);

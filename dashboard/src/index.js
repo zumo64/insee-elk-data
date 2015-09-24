@@ -13,9 +13,18 @@ var createindexmapping = require('./createindexmapping.js');
 
 var toKeep = {
     "NB_F102_NB_AIREJEU": "boulodromes",
-    "NB_F117_NB_AIREJEU": "skate",
-    "NB_F108_NB_AIREJEU": "golf",
-    "DEP": "departement"
+    "NB_G103": "campings",
+    "NB_D306": "alcoolisme",
+    "NB_B101": "hypermarches",
+    "NB_B102": "supermarches",
+    "NB_F101" : "piscines",
+    "NB_A206" : "poste",
+    "DEP":"departement",
+    "COM" : "commune",
+    "LIBCOM" : "libcom",
+    "REG" : "region",
+    "ARR" : "arrondissement"
+ 
 }
 
 // load all iris geometry and create a map
@@ -42,7 +51,19 @@ connectEs()
 
                 var stream = this;
 
-                if(irisMap.get(row.COM)) {
+                if(irisMap.get(row.COM)) { 
+                  
+                  if (row.NB_G103 <= 0 && 
+                      row.NB_D306 <= 0 && 
+                      row.NB_B101 <= 0 && 
+                      row.NB_B102 <= 0 && 
+                      row.NB_F101 <= 0 && 
+                      row.NB_A206 <= 0 && 
+                      row.NB_F102_NB_AIREJEU <= 0)  {
+                       return;
+                    }
+                  
+                  
 
                     var center = turf.centroid(irisMap.get(row.COM));
 
@@ -75,11 +96,7 @@ connectEs()
 
             }))
             .on('close', function(){
-                console.log("Finished loading in ES.");
-                // to prevent the container from exiting which make all other exit.
-                setTimeout(function(){
-                    console.log("Enough playing.")
-                }, 100000000)
+                console.log("Finished loading in ES.")
             })
 
         })

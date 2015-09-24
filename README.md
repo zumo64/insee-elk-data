@@ -1,4 +1,4 @@
-## Open-Moulinette
+## insee-elk-data
 
 Open-data is often not in an appropriate format. When it is the case, hackers like ourselves need some efforts to clean it. Each folder contains:
 

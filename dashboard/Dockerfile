@@ -36,4 +36,4 @@ ENV PATH /opt/conda/bin:$PATH
 
 
 
-WORKDIR /open-moulinette/dashboard/src
+WORKDIR /insee-elk-data/dashboard/src

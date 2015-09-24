@@ -1,0 +1,19 @@
+cluster.name: elk_insee
+
+path:
+  data: /data/
+  work: /data/work
+
+
+# uncomment to allow anonymous access:
+#  anonymous:
+#    username: es_admin
+#    roles: admin
+
+script:
+  inline: on
+  indexed: on
+
+
+http:
+  cors.enabled: true
