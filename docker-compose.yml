@@ -21,7 +21,7 @@ data:
        - "9200:9200"
 
 kibana:
-   image: kibana:latest
+   image: kibana:4.1
    volumes:
        - ./config:/config
    ports:
